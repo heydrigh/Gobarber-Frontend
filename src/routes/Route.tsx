@@ -1,7 +1,7 @@
 import React from 'react';
 import {
+  Route as ReactDOMRoute,
   RouteProps as ReactDOMRouteProps,
-  Route as ReactDomRoute,
   Redirect,
 } from 'react-router-dom';
 
@@ -20,9 +20,9 @@ const Route: React.FC<RouteProps> = ({
   const { user } = useAuth();
 
   return (
-    <ReactDomRoute
+    <ReactDOMRoute
       {...rest}
-      render={location => {
+      render={({ location }) => {
         return isPrivate === !!user ? (
           <Component />
         ) : (
